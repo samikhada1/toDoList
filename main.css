@@ -74,7 +74,7 @@ input, button {
     opacity: 0.6;
 
 }
-.main {
+main {
     flex:1 1 0%;
     padding: 2rem 1rem;
     max-width: 800px;
@@ -83,7 +83,7 @@ input, button {
 
 }
 .task-list {
-    padding: 1rem;
+
 
 }
 .task-list h2 {
@@ -101,6 +101,9 @@ input, button {
     border-radius: 1rem;
     margin-bottom: 1rem;
 
+}
+#tasks .task .content {
+    flex:1 1 0%;
 }
 #tasks .task .content .text {
     color:var(--light);

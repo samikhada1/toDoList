@@ -40,13 +40,38 @@ window.addEventListener('load', () => {
         task_delete_el.classList.add("delete");
         task_delete_el.innerHTML = "Delete";
 
-        task_action_el.appendChild(task_delete_el);
         task_action_el.appendChild(task_edit_el);
+        task_action_el.appendChild(task_delete_el);
+ 
 
         task_el.appendChild(task_action_el);
         
         list_el.appendChild(task_el);
         
         input.value = "";
-    })
-})
+        
+        task_edit_el.addEventListener('click', () => {
+            if(task_edit_el.innerText.toLowerCase() == "edit") {
+            task_input_el.removeAttribute("readonly");
+            task_input_el.focus();
+            task_edit_el.innerHTML = "Save";
+            } else {
+                task_input_el.setAttribute("readonly", "readonly");
+                task_edit_el.innerText = "Edit";
+            }
+
+        });
+        
+        task_delete_el.addEventListener('click',() => {
+            list_el.removeChild(task_el);
+        });
+
+        let localItems = JSON.parse(localStorage.getItem('localItem'))
+        if(localItems == null){
+            taskList = []
+        }else{
+            taskList.push(task.value)
+            localStorage.setItem('localItem', JSON.stringify(taskList))
+        }
+    });
+});
