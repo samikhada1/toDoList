@@ -59,7 +59,9 @@ input, button {
     color: var(--pink);
     font-size: 1.25rem;
     font-weight: 700;
-    background-image: linear-gradient(to right, var(--pink)), var(--purpule);
+    background-image: linear-gradient(to right, var(--pink), var(--purpule));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     cursor: pointer;
     transition: 0.4s;
 
@@ -128,9 +130,15 @@ input, button {
 
 .task .action button:hover {
     opacity: 0.8;
-
 }
 .task .action button:active {
     opacity: 0.6;
-
+}
+.task .action .edit {
+    background-image: linear-gradient(to right, var(--pink), var(--purpule));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.task .action .delete {
+    color: crimson;
 }
